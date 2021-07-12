@@ -132,6 +132,7 @@ dmypy.json
 # Edit at https://www.toptal.com/developers/gitignore?templates=vscode
 
 ### vscode ###
+.vscode
 .vscode/*
 */.vscode
 # !.vscode/settings.json
@@ -148,3 +149,4 @@ dmypy.json
 
 # Data
 /data
+*.png
