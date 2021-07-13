@@ -1,28 +1,20 @@
-# Medical Image Registration
+# PET-CT Registration Study
 
 ## Introduction
 * Study **Deeplearning-based Medical Image Registration(DLIR)** with *VoxelMorph* Framework.
 * Solve **PET-CT** Registration Problems by DLIR.
   
 ## Install Packages
-* Tensorflow 
-  * CPU setting
-    ```
-    pip install tensorflow
-    ```
-  * GPU setting (RTX 3060)
-    ```
-    pip install ?
-    ```
 * VoxelMorph
     ```
     pip install voxelmorph
     ```
-* Other Packages
-    ```
-    pip install jupyter
-    pip install seaborn
-    ```
 
-# History
-* Start : 2021/06/21
+## Description
+* Prestudy I (VoxelMorph Tutorial)
+  1. VoxelMorph_Tutorial_2D
+  2. VoxelMorph_Tutorial_3D
+* Prestudy II (RIDER PET-CT Dataset)
+  1. RIDER_Preprocessing
+  2. RIDER_Normalization
+  3. RIDER_VoxelMorph_Train (*Colab*)
