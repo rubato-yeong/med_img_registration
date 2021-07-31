@@ -1,5 +1,6 @@
 '''
-    Standardization
+    Standardization.py
+        Main Function: path2base
 '''
 
 import os
@@ -8,6 +9,9 @@ import pydicom
 
 from tqdm.notebook import tqdm
 from scipy.ndimage import zoom
+
+
+
 
 '''
     Support Functions
@@ -137,3 +141,10 @@ def path2base(DATA_PATH, SAVE_PATH,
             np.save(os.path.join(CT_PATH, '{:03d}'.format(patient_num)), ct_voxel)
             np.save(os.path.join(PT_OLD_PATH, '{:03d}'.format(patient_num)), pt_voxel)
             np.save(os.path.join(PT_NEW_PATH, '{:03d}'.format(patient_num)), pt_resize)
+
+
+
+
+if __name__ == "__main__":
+    print("This is standardization.py")
+    print("This Code should be running on Jupyter Notebook.")
