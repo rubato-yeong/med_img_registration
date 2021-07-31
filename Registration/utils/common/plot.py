@@ -29,11 +29,11 @@ def mid_plot(PATH,
         axes.append(fig.add_subplot(grid[0], grid[1], i+1))
         axes[-1].set_title(NPY_PATH, fontsize=15)
         if view == 0:
-            plt.imshow(voxel[mid_len,:,:].T, aspect='auto', cmap=cmap, vmax=vmax)
+            plt.imshow(voxel[mid_len,:,:].T, aspect='auto', cmap=cmap, vmax=vmax, vmin=0)
         elif view == 1:
-            plt.imshow(voxel[:,mid_len,:].T, aspect='auto', cmap=cmap, vmax=vmax)
+            plt.imshow(voxel[:,mid_len,:].T, aspect='auto', cmap=cmap, vmax=vmax, vmin=0)
         else:
-            plt.imshow(voxel[:,:,mid_len], aspect='auto', cmap=cmap, vmax=vmax)
+            plt.imshow(voxel[:,:,mid_len],   aspect='auto', cmap=cmap, vmax=vmax, vmin=0)
 
 
 def compare_plot(PATH_1, PATH_2,
@@ -60,12 +60,12 @@ def compare_plot(PATH_1, PATH_2,
 
         axes.append(fig.add_subplot(grid[0], grid[1], 2*i+1))
         axes[-1].set_title(PATH_1_list[i], fontsize=15)
-        if view == 0:   plt.imshow(voxel_1[mid_len_1,:,:].T, aspect='auto', cmap=cmap[0], vmax=vmax[0])
-        elif view == 1: plt.imshow(voxel_1[:,mid_len_1,:].T, aspect='auto', cmap=cmap[0], vmax=vmax[0])
-        else:           plt.imshow(voxel_1[:,:,mid_len_1],   aspect='auto', cmap=cmap[0], vmax=vmax[0])
+        if view == 0:   plt.imshow(voxel_1[mid_len_1,:,:].T, aspect='auto', cmap=cmap[0], vmax=vmax[0], vmin=0)
+        elif view == 1: plt.imshow(voxel_1[:,mid_len_1,:].T, aspect='auto', cmap=cmap[0], vmax=vmax[0], vmin=0)
+        else:           plt.imshow(voxel_1[:,:,mid_len_1],   aspect='auto', cmap=cmap[0], vmax=vmax[0], vmin=0)
 
         axes.append(fig.add_subplot(grid[0], grid[1], 2*i+2))
         axes[-1].set_title(PATH_2_list[i], fontsize=15)
-        if view == 0:   plt.imshow(voxel_2[mid_len_2,:,:].T, aspect='auto', cmap=cmap[1], vmax=vmax[1])
-        elif view == 1: plt.imshow(voxel_2[:,mid_len_2,:].T, aspect='auto', cmap=cmap[1], vmax=vmax[1])
-        else:           plt.imshow(voxel_2[:,:,mid_len_2],   aspect='auto', cmap=cmap[1], vmax=vmax[1])
+        if view == 0:   plt.imshow(voxel_2[mid_len_2,:,:].T, aspect='auto', cmap=cmap[1], vmax=vmax[1], vmin=0)
+        elif view == 1: plt.imshow(voxel_2[:,mid_len_2,:].T, aspect='auto', cmap=cmap[1], vmax=vmax[1], vmin=0)
+        else:           plt.imshow(voxel_2[:,:,mid_len_2],   aspect='auto', cmap=cmap[1], vmax=vmax[1], vmin=0)
