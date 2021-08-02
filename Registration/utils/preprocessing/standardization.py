@@ -132,6 +132,11 @@ def path2base(DATA_PATH, SAVE_PATH,
             pt_voxel = voxel2resize(pt_voxel, ShapeList)
             pt_resize = voxel2resize(pt_resize, ShapeList)
 
+            # Clip
+            ct_voxel = np.clip(ct_voxel, 0, RangeList[0])
+            pt_voxel = np.clip(pt_voxel, 0, RangeList[1])
+            pt_resize = np.clip(pt_resize, 0, RangeList[1])
+
             # Normalization
             ct_voxel = ct_voxel / RangeList[0]
             pt_voxel = pt_voxel / RangeList[1]
