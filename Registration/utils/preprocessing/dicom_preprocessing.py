@@ -1,5 +1,5 @@
 '''
-    Standardization.py
+    dicom_preprocessing.py
         Main Function: path2base
 '''
 
