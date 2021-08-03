@@ -110,6 +110,7 @@ def nif2npy(PATH,
         PT_resize = np.clip(PT_resize, 0, 255)
         CT_voxel = (CT_voxel + 1024) / 4095
         PT_voxel = PT_voxel / 255
+        PT_resize = PT_resize / 255
 
         # Save
         np.save(os.path.join(CT_SAVE_PATH, '{:03d}'.format(PATIENT_NUM)), CT_voxel)
