@@ -150,3 +150,6 @@ dmypy.json
 # Data
 /data
 *.png
+
+# Study Files
+/Registration/study
