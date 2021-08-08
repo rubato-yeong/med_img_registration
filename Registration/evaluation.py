@@ -8,6 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 import utils.model.losses as losses
+import utils.common.metric as metric
 
 # PATH Setting
 DIR_PATH = 'F:/20210730_samples'
@@ -29,7 +30,7 @@ Ji = torch.FloatTensor(Ji).to(device)
 
 start = time.time()
 
-criterion = losses.NMI(num_bin=16, metric=True, sigma_ratio=0.05, device=device).to(device)
+criterion = metric.NMI(num_bin=8, device=device).to(device)
 cc = criterion(Ii[:2], Ji[:2]).cpu()
 print ('Autograd Check', cc.requires_grad)
 print ('NCC', cc)

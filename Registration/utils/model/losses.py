@@ -19,11 +19,10 @@ import torch.nn.functional as F
     Normalized Cross Correlation
 '''
 
-class NCC(nn.Module):
+class NCCLoss(nn.Module):
 
     def __init__(self,
-                 local=True, 
-                 metric=False,
+                 local=True,
                  win=None,
                  eps=1e-5,
                  device='cuda'):
@@ -31,7 +30,6 @@ class NCC(nn.Module):
             win : local window size (e.g. (16, 16, 16))
             win_default (9) : default local window size (9, 9, 9)
             local : True -> local / False -> global calculation
-            metric : True -> metric / False -> loss calculation
             eps : epsilon constant (prevent division by 0)
         '''
 
@@ -40,7 +38,6 @@ class NCC(nn.Module):
         # Initial Values
         self.device = device
         self.local = local
-        self.metric = metric
         self.win = None if win is None else np.array(win)
         self.win_size = None
         self.win_default = 9
@@ -100,14 +97,9 @@ class NCC(nn.Module):
         I_var = I2_sum - 2 * u_I * I_sum + u_I * u_I * self.win_size
         J_var = J2_sum - 2 * u_J * J_sum + u_J * u_J * self.win_size
 
-        if self.metric:
-            I_std, J_std = torch.sqrt(I_var), torch.sqrt(J_var)
-            cc = cross / (I_std * J_std + self.eps) # [bs, 1, *V]
-        else:
-            cc = cross * cross / (I_var * J_var + self.eps) # [bs, 1, *V]
-            cc = 1 - cc
+        cc = cross * cross / (I_var * J_var + self.eps) # [bs, 1, *V]
 
-        return cc
+        return 1 - cc
 
     
     def forward(self, y_pred, y_true):
@@ -130,7 +122,7 @@ class NCC(nn.Module):
     Normalized Mutual Information (on Voxels)
 '''
 
-class NMI(torch.nn.Module):
+class NMILoss(torch.nn.Module):
 
     def __init__(self,
                  metric=False,
@@ -187,8 +179,7 @@ class NMI(torch.nn.Module):
 
         nmi = 2 * (1 - Hxy / (Hx + Hy)) # [bs]
 
-        if self.metric: return nmi
-        else: return 1 - nmi 
+        return 1 - nmi 
 
     def forward(self, y_true, y_pred):
 
