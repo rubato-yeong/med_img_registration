@@ -3,8 +3,8 @@
     losses.py
 
     Reference
-    [1] https://github.com/voxelmorph/voxelmorph/blob/master/voxelmorph/tf/losses.py
-    [2] https://github.com/junyuchen245/ViT-V-Net_for_3D_Image_Registration_Pytorch/blob/main/ViT-V-Net/losses.py
+    [1] github.com/voxelmorph/voxelmorph/blob/master/voxelmorph/tf/losses.py
+    [2] github.com/junyuchen245/ViT-V-Net_for_3D_Image_Registration_Pytorch/blob/main/ViT-V-Net/losses.py
 
 '''
 
