@@ -14,8 +14,7 @@ import utils.common.metric as metric
 DIR_PATH = 'F:/20210730_samples'
 SAVE_PATH = os.path.join(DIR_PATH, 'numpy')
 CT_PATH = os.path.join(SAVE_PATH, 'CT_target')
-PT_PATH = os.path.join(SAVE_PATH, 'PT_vanilla')
-PT_PATH_2 = os.path.join(SAVE_PATH, 'PT_resize')
+PT_PATH = os.path.join(SAVE_PATH, 'PT_clip')
 
 device = torch.device('cuda')
 
@@ -23,7 +22,7 @@ Ii = np.zeros([16, 1, 128, 128, 256])
 Ji = np.zeros([16, 1, 128, 128, 256])
 for i in range(16):
     Ii[i,0] = np.load(os.path.join(CT_PATH, os.listdir(CT_PATH)[i]))
-    Ji[i,0] = np.load(os.path.join(PT_PATH_2, os.listdir(PT_PATH_2)[i]))
+    Ji[i,0] = np.load(os.path.join(PT_PATH, os.listdir(PT_PATH)[i]))
 
 Ii = torch.FloatTensor(Ii).to(device)
 Ji = torch.FloatTensor(Ji).to(device)
